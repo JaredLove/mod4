@@ -1,3 +1,69 @@
 * {
     box-sizing: border-box;
 }
+
+html,
+body,
+.htmlbox {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: rgb(7, 7, 44);
+  }
+  
+  .htmlbox {
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  header h1 {
+    font-size: 80px;
+  }
+
+  #index {
+    font-size: 50px;
+  }
+
+  .htmlbox h2 {
+    color: white;
+
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px;
+    padding-top: 120px;
+    color: hsl(0, 0%, 100%);
+  }
+
+
+  #start {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+.btn {
+    border: none;
+    background-color: rgb(255, 0, 0);
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
+      0px;
+    color: hsl(0, 0%, 100%);
+    display: inline-block;
+    font-size: 22px;
+    line-height: 22px;
+    margin: 16px 16px 16px 20px;
+    padding: 14px 34px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn:hover{
+    font-size: 40px;
+}
