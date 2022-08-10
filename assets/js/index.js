@@ -217,3 +217,33 @@ var questions = [
             gameEnd();
         }
       }
+
+      function highScore () {
+
+        var name = nameEl.value.trim();
+      
+        if (name !== "") {
+            var scores = JSON.parse(window.localStorage.getItem("scores")) || [];
+      
+            var news = {
+                score: time,
+                name: name
+            };
+      
+        scores.push(news);
+        window.localStorage.setItem("scores", JSON.stringify(scores));
+      
+      
+      
+        
+        }
+      }
+      
+      function check(event) {
+        if (event.key === "Enter") {
+            highScore();
+        }
+      }
+      function getScore() {
+      alert(localStorage["scores"]);
+      }
