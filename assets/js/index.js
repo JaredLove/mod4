@@ -158,3 +158,40 @@ var questions = [
       
       });
       };
+
+
+      function answerCheck() {
+        if (this.value !== questions[questNum].correctAnswer) {
+            time -= 15;
+            timeEl.textContent = time;
+            noteEl.textContent = "Incorrect!";
+            noteEl.style.color = "white";
+            noteEl.style.fontSize = "50px";
+        }
+        
+        else if (this.value = questions[questNum].correctAnswer) {
+        noteEl.textContent = "Correct!";
+        noteEl.style.color = "yellow";
+        noteEl.style.fontSize = "50px";
+        questNum++;
+        }
+      
+        if (time === 0) {
+            time = 0;
+            gameEnd();
+        }
+      
+        noteEl.setAttribute("class", "notes")
+        setTimeout(function () {
+        noteEl.setAttribute("class", "notes hide")
+        }, 1000)
+      
+        if (questNum === questions.length) {
+        gameEnd();
+        }
+      
+        else {
+        javaGame2();
+        }
+      
+      }
