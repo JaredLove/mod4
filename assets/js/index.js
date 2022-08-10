@@ -1,7 +1,5 @@
 
-var answers;
-var question;
-var correctAnswerIndex;
+
 
 
 
@@ -21,7 +19,7 @@ var questions = [
             "this is an obect",
 
             ],
-        //b 
+        correctAnswer: "The 'this' keyword refers to the object FROM WHICH the method was called.",
         correctAnswerIndex: 1,
     },
     {
@@ -38,7 +36,7 @@ var questions = [
              "<java>",
             
             ],
-
+        correctAnswer: "<script>",
         correctAnswerIndex: 1,
             //A
     },
@@ -55,7 +53,7 @@ var questions = [
             
             "<script a=index.js",
         ],
-
+        correctAnswer: "<script src=index.js",
         correctAnswerIndex: 1,
         //A
     
@@ -65,41 +63,37 @@ var questions = [
     
         question: "How do you write Hello World in an alert box?",
         answers: [
-            "alertBox('Hello World');", 
+            "alertBox('Hello World')", 
             
             "msg('Hello World')",
             
-            "alert('Hello World');",
+            "alert('Hello World')",
 
             "msgBox('Hello World')",
 
             ],
+        correctAnswer: "alert('Hello World')",
         correctAnswerIndex: 1,
         //C
-
-        question: "How do you write Hello World in an alert box?",
-        answers: [
-            "alertBox('Hello World');", 
-            
-            "msg('Hello World')",
-            
-            "alert('Hello World');",
-
-            "msgBox('Hello World')",
-
-            ],
-        correctAnswerIndex: 1,
-        //C
-    
     },
+    {
+        question: "How do you create a function in JavaScript?",
+        answers: [
+            "<function = myFunction()>", 
+            
+            "function myFunction()",
+            
+            "function(myFunction)",
+
+            "function::myFunction()",
+
+            ],
+        correctAnswer: "function myFunction()",
+        correctAnswerIndex: 1,
+        //C
     
-    
+    }
+
     
     ];
 
-
-
-var gameBtn = document.querySelector("#game");
-
-
-gameBtn.addEventListener("click", javaGame2);

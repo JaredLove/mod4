@@ -6,26 +6,43 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>Javascript Game</title>
             <link rel="stylesheet" href="./assets/css/index.css" />
+            
     
     </head>
 
     <body>
-    <div id="htmlbox">
-        <header>
+
+    <button id="high" class="scores">Veiw Highscores</button>
+    
+
+    <div class="timer">Time Left: <span id="time">0</span></div>
+
+    <div id="htmlboxwrap">
+        <div id="startgame">
         <h1>Javascript Game!</h1>
         <p id="index">A Javascript quiz game to help you test your knownlegde! <br>
                         You will have 2 mintues to complete the quiz! <br>
                         If you get a questions wrong it will subtract time! <br>
                         Enjoy!</p>
-    </header>
+        </div>
         <div id="start">
-        <h2>Click Start to begin!</h2>
-        <button id="game" class="btn">Start</button>
+        <button id="game" class="btn">Start Game</button>
         </div>
-        <div>
-            <script src="./assets/js/index.js"></script>
+        <div id="questions" class="hide">
+            <h2 id="title"></h2>
+            <div id="answers" class="answers"></div>
+          </div>
+
+        <div id="end" class="hide">
+            <h2>Your score is <span id="endScore"></span>.</h2>
+            <p>Enter Name: <input type="text" id="name1" max="3">
+            <button id="enter">Done</button></p>
         </div>
+
+        <div id="notes" class="notesHide"></div>
     </div>
+    
+    <script src="./assets/js/index.js"></script>
     </body>
 
 
