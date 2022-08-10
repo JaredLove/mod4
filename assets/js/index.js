@@ -247,3 +247,12 @@ var questions = [
       function getScore() {
       alert(localStorage["scores"]);
       }
+
+
+      highEl.onclick = getScore;
+
+    enterBtn.onclick = highScore;
+
+    startBtn.onclick = startQuiz;
+
+    nameEl.onkeyup = check;
