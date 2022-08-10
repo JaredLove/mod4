@@ -195,3 +195,25 @@ var questions = [
         }
       
       }
+
+      function gameEnd() {
+
+        clearInterval(timerC);
+      
+        var endEl = document.getElementById("end");
+        endEl.removeAttribute("class");
+      
+        var scoreEl = document.getElementById("endScore");
+        scoreEl.textContent = time;
+      
+        questionsEl.setAttribute("class", "hide");
+      }
+      
+      function times() {
+        time--;
+        timeEl.textContent = time;
+      
+        if (time <= 0) {
+            gameEnd();
+        }
+      }
