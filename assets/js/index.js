@@ -7,7 +7,10 @@ var nameEl = document.querySelector("#name1");
 var noteEl = document.querySelector("#notes");
 var highEl = document.querySelector("#high");
 
-
+var correctAnswerIndex;
+var questNum = 0;
+var time = 120;
+var timerC;
 
 
 
