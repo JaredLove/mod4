@@ -1,4 +1,11 @@
-
+var questionsEl = document.querySelector("#questions");
+var answersEl = document.querySelector("#answers");
+var startBtn = document.querySelector("#game");
+var timeEl = document.querySelector("#time");
+var enterBtn = document.querySelector("#enter");
+var nameEl = document.querySelector("#name1");
+var noteEl = document.querySelector("#notes");
+var highEl = document.querySelector("#high");
 
 
 
