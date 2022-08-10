@@ -12,7 +12,11 @@ var questNum = 0;
 var time = 120;
 var timerC;
 
-
+questionsEl.style.background = "teal";
+questionsEl.style.textAlign = "center";
+questionsEl.style.color = "#000001";
+answersEl.style.textAlign = "center";
+answersEl.style.color = "red";
 
 var questions = [
     {
@@ -107,3 +111,50 @@ var questions = [
     
     ];
 
+    function startQuiz() {
+        // hide start screen
+        var startScreenEl = document.getElementById("startgame");
+        startScreenEl.setAttribute("class", "hide");
+      
+        var btnsEl = document.getElementById("game");
+        btnsEl.setAttribute("class", "hide");
+      
+        // un-hide questions section
+        questionsEl.removeAttribute("class");
+      
+        // start timer
+        timerC = setInterval(times, 1000);  timeEl.textContent = time;
+        
+        // show starting time
+        timerC.textContent = time;
+      
+        javaGame2();
+      }
+      
+      
+      
+      
+      
+      
+      
+        function javaGame2() {
+        var quest = questions[questNum];
+      
+        var nameEl = document.getElementById("title");
+        nameEl.textContent = quest.question;
+      
+        answersEl.innerHTML = "";
+      
+        quest.answers.forEach(function(answer, i) {
+        var answerHub = document.createElement('button');
+        answerHub.setAttribute("class", "answer");
+        answerHub.setAttribute("value", answer);
+      
+        answerHub.textContent = i + 1 + ". " + answer;
+      
+        answerHub.onclick = answerCheck;
+      
+        answersEl.appendChild(answerHub);
+      
+      });
+      };
