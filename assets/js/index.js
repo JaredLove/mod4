@@ -1,3 +1,4 @@
+//Selecotr varaibles used for quiz
 var questionsEl = document.querySelector("#questions");
 var answersEl = document.querySelector("#answers");
 var startBtn = document.querySelector("#game");
@@ -7,17 +8,18 @@ var nameEl = document.querySelector("#name1");
 var noteEl = document.querySelector("#notes");
 var highEl = document.querySelector("#high");
 
-var correctAnswerIndex;
+
+//start of quiz
 var questNum = 0;
 var time = 120;
 var timerC;
-
-questionsEl.style.background = "teal";
+//style to var questions array
+questionsEl.style.background = "white";
 questionsEl.style.textAlign = "center";
 questionsEl.style.color = "#000001";
-answersEl.style.textAlign = "center";
-answersEl.style.color = "red";
 
+
+//array of questions and answers used for quiz learned this from jeremy my profressor in class
 var questions = [
     {
     question: "What is our definition of the 'this' keyword?",
@@ -34,7 +36,7 @@ var questions = [
 
             ],
         correctAnswer: "The 'this' keyword refers to the object FROM WHICH the method was called.",
-        correctAnswerIndex: 1,
+        
     },
     {
     
@@ -51,8 +53,8 @@ var questions = [
             
             ],
         correctAnswer: "<script>",
-        correctAnswerIndex: 1,
-            //A
+        
+            
     },
     
     {
@@ -68,8 +70,7 @@ var questions = [
             "<script a=index.js",
         ],
         correctAnswer: "<script src=index.js",
-        correctAnswerIndex: 1,
-        //A
+        
     
     },
     
@@ -87,8 +88,7 @@ var questions = [
 
             ],
         correctAnswer: "alert('Hello World')",
-        correctAnswerIndex: 1,
-        //C
+        
     },
     {
         question: "How do you create a function in JavaScript?",
@@ -103,31 +103,30 @@ var questions = [
 
             ],
         correctAnswer: "function myFunction()",
-        correctAnswerIndex: 1,
-        //C
+        
     
     }
 
     
     ];
-
+    //function to start quiz
     function startQuiz() {
-        // hide start screen
+        //hides html for quiz to show
         var startScreenEl = document.getElementById("startgame");
         startScreenEl.setAttribute("class", "hide");
-      
+        //hides the start game button
         var btnsEl = document.getElementById("game");
         btnsEl.setAttribute("class", "hide");
       
-        // un-hide questions section
+        //removes the hide class to show the questions on the screen
         questionsEl.removeAttribute("class");
       
-        // start timer
+        //starts the timer for the quiz calls times function
         timerC = setInterval(times, 1000);  timeEl.textContent = time;
         
-        // show starting time
+        //shows the timer
         timerC.textContent = time;
-      
+        //evokes the game function
         javaGame2();
       }
       
@@ -136,7 +135,7 @@ var questions = [
       
       
       
-      
+      //function for the javagame
         function javaGame2() {
         var quest = questions[questNum];
       
@@ -146,50 +145,60 @@ var questions = [
         answersEl.innerHTML = "";
       
         quest.answers.forEach(function(answer, i) {
+        //turns the answers into buttons by using createElement
         var answerHub = document.createElement('button');
+        //adding style to answers
         answerHub.setAttribute("class", "answer");
         answerHub.setAttribute("value", answer);
+
+        answerHub.style.textAlign = "center";
+        answerHub.style.color = "black";
+       
       
         answerHub.textContent = i + 1 + ". " + answer;
-      
+        //when the user checks an answer it will send it to the answerCheck function
         answerHub.onclick = answerCheck;
-      
+        //appendChild the "answers" to the screen
         answersEl.appendChild(answerHub);
       
       });
       };
 
-
+      //function to check the answers
       function answerCheck() {
+        // if statement to make sure the user chose the correct answer and if not subtract time
         if (this.value !== questions[questNum].correctAnswer) {
             time -= 15;
             timeEl.textContent = time;
+            //note to tell the user the answer was wrong with some styling
             noteEl.textContent = "Incorrect!";
             noteEl.style.color = "white";
             noteEl.style.fontSize = "50px";
         }
-        
+        // if statement the make sure the user chose the correct answer
         else if (this.value = questions[questNum].correctAnswer) {
+        //note to tell the user the answer was correct with some styling
         noteEl.textContent = "Correct!";
         noteEl.style.color = "yellow";
         noteEl.style.fontSize = "50px";
         questNum++;
         }
-      
+        // if time reaches 0 go to gameEnd function
         if (time === 0) {
             time = 0;
             gameEnd();
         }
-      
+        //shows note
         noteEl.setAttribute("class", "notes")
         setTimeout(function () {
+        //hides note
         noteEl.setAttribute("class", "notes hide")
         }, 1000)
-      
+        //when you reach the end of the quiz it willgo to gameEnd function
         if (questNum === questions.length) {
         gameEnd();
         }
-      
+        
         else {
         javaGame2();
         }
@@ -199,16 +208,18 @@ var questions = [
       function gameEnd() {
 
         clearInterval(timerC);
-      
+        //gets the end screen id
         var endEl = document.getElementById("end");
+        //removes to class to show end screen
         endEl.removeAttribute("class");
-      
+        //grabs the endscore id
         var scoreEl = document.getElementById("endScore");
+        //shows the score
         scoreEl.textContent = time;
-      
+        //hides the quetions to show end screen
         questionsEl.setAttribute("class", "hide");
       }
-      
+      //function for timer
       function times() {
         time--;
         timeEl.textContent = time;
@@ -217,20 +228,21 @@ var questions = [
             gameEnd();
         }
       }
-
+      //highscore function to store name and score
       function highScore () {
-
-        var name = nameEl.value.trim();
+        //name input
+        var name = nameEl.value;
       
         if (name !== "") {
             var scores = JSON.parse(window.localStorage.getItem("scores")) || [];
-      
+            //score is based on how much time you had left
             var news = {
                 score: time,
                 name: name
             };
-      
+         //push news to scores   
         scores.push(news);
+        //stores the score
         window.localStorage.setItem("scores", JSON.stringify(scores));
       
       
@@ -238,17 +250,18 @@ var questions = [
         
         }
       }
-      
+      //check for the user key click sends to highscore for input of name
       function check(event) {
         if (event.key === "Enter") {
             highScore();
         }
       }
+      //function to show scores alerts the user
       function getScore() {
       alert(localStorage["scores"]);
       }
 
-
+      //onclick events 
       highEl.onclick = getScore;
 
     enterBtn.onclick = highScore;
