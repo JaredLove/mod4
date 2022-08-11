@@ -11,12 +11,12 @@
     </head>
 
     <body>
-
+    <!--Button to veiw highscores -->
     <button id="high" class="scores">Veiw Highscores</button>
     
-
+    <!--Timer for quiz-->
     <div class="timer">Time Left: <span id="time">0</span></div>
-
+    <!--wrapper for quiz-->
     <div id="htmlboxwrap">
         <div id="startgame">
         <h1>Javascript Game!</h1>
@@ -26,22 +26,23 @@
                         Enjoy!</p>
         </div>
         <div id="start">
+        <!--Button to start game-->
         <button id="game" class="btn">Start Game</button>
         </div>
         <div id="questions" class="hide">
             <h2 id="title"></h2>
             <div id="answers" class="answers"></div>
           </div>
-
+          <!--End Screen-->
         <div id="end" class="hide">
             <h2>Your score is <span id="endScore"></span>.</h2>
             <p>Enter Name: <input type="text" id="name1" max="3">
             <button id="enter">Done</button></p>
         </div>
-
+        <!--Note to tell someone if correct or incorrect-->
         <div id="notes" class="notesHide"></div>
     </div>
-    
+    <!--script-->
     <script src="./assets/js/index.js"></script>
     </body>
 
